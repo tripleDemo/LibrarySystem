@@ -1,0 +1,73 @@
+CREATE DATABASE librarydb
+ 
+CREATE TABLE userMsg(
+userId INT PRIMARY KEY AUTO_INCREMENT,
+userName VARCHAR(20) NOT NULL UNIQUE,
+`password` VARCHAR(20) NOT NULL,
+`type` TINYINT(1) NOT NULL DEFAULT 0
+);
+
+CREATE TABLE bookMsg(
+bookId INT PRIMARY KEY AUTO_INCREMENT,
+bookName VARCHAR(45) NOT NULL,
+bookCover VARCHAR(80),
+borrowNum INT DEFAULT 0,
+authorId INT,
+publisher VARCHAR(45),
+publishTime DATE NOT NULL
+);
+
+CREATE TABLE borrowInfo(
+infoId INT PRIMARY KEY AUTO_INCREMENT,
+bookId INT NOT NULL,
+lendTime DATE,
+returnTime DATE,
+userId INT NOT NULL
+);
+
+CREATE TABLE authorMsg(
+authorId INT PRIMARY KEY AUTO_INCREMENT,
+authorName VARCHAR(20) NOT NULL,
+authorPhoto VARCHAR(80),
+authorBirth DATE
+);
+
+INSERT INTO usermsg (userName,`PASSWORD`,`TYPE`) VALUE('admin','123456',1);
+
+INSERT INTO authormsg (authorName,authorPhoto,authorBirth) VALUES 
+('Torvalds','/ssm/static/images/authors/author1.png','1969-12-28'),
+('Korotkevich','/ssm/static/images/authors/author2.png','1979-12-28'),
+('Dean','/ssm/static/images/authors/author3.png','1989-12-28'),
+('FabriceBellard','/ssm/static/images/authors/author4.png','1999-12-28'),
+('Knuth','/ssm/static/images/authors/author5.png','1969-10-28'),
+('Hejlsberg','/ssm/static/images/authors/author6.png','1969-12-09'),
+('Thompson','/ssm/static/images/authors/author7.png','1969-10-28'),
+('Hejlsberg','/ssm/static/images/authors/author8.png','1969-12-09'),
+('Angelo','/ssm/static/images/authors/author9.png','1959-10-28'),
+('Cutting','/ssm/static/images/authors/author10.png','1969-09-09');
+
+INSERT INTO bookmsg (bookName,bookCover,borrowNum,authorId,publisher,publishTime) VALUES 
+('黑客攻防从入门到精通','/ssm/static/images/books/book1.png',777,3,'机械工业出版社','2015-11-20'),
+('Go语言编程基础','/ssm/static/images/books/book3.png',77,3,'人民邮电出版社','2016-11-20'),
+('C++多线程编程实战','/ssm/static/images/books/book4.png',666,5,'人民邮电出版社','2016-10-01'),
+('代码整洁之道','/ssm/static/images/books/book5.png',888,6,'人民邮电出版社','2017-06-06'),
+('Python游戏编程入门','/ssm/static/images/books/book6.png',99,3,'人民邮电出版社','2018-11-20'),
+('神经网络算法与实现','/ssm/static/images/books/book7.png',777,5,'人民邮电出版社','2016-11-20'),
+('我的第一本编程书','/ssm/static/images/books/book8.png',555,3,'人民邮电出版社','2015-11-20'),
+('蓝图可视化编程','/ssm/static/images/books/book9.png',877,3,'人民邮电出版社','2018-11-20'),
+('Windows系统编程','/ssm/static/images/books/book10.png',455,2,'机械工业出版社','2017-11-20'),
+('Windows汇编语言程序设计教程','/ssm/static/images/books/book11.png',888,6,'电子工业出版社','2017-06-06'),
+('Python数据分析基础','/ssm/static/images/books/book12.png',656,2,'中国统计出版社','2017-06-06'),
+('jQuery基础教程','/ssm/static/images/books/book13.png',875,1,'人民邮电出版社','2018-06-06'),
+('Linux内核分析及编程','/ssm/static/images/books/book14.png',689,5,'电子工业出版社','2018-06-06'),
+('C#程序设计及应用教程','/ssm/static/images/books/book15.png',464,6,'人民邮电出版社','2017-06-06'),
+('Python趣味编程10例','/ssm/static/images/books/book16.png',453,9,'人民邮电出版社','2019-06-06'),
+('Python基础教程','/ssm/static/images/books/book17.png',888,6,'人民邮电出版社','2019-06-06'),
+('PHP专业项目实例开发','/ssm/static/images/books/book18.png',433,10,'中国水利水电出版社','2017-06-06'),
+('Linux命令、编辑器与Shell编程','/ssm/static/images/books/book19.png',888,6,'人民邮电出版社','2017-06-06'),
+('JavaScript DOM编程艺术','/ssm/static/images/books/book20.png',465,3,'人民邮电出版社','2018-05-06'),
+('Python深度学习','/ssm/static/images/books/book21.png',978,5,'人民邮电出版社','2017-08-06'),
+('Python神经网络编程','/ssm/static/images/books/book22.png',454,7,'人民邮电出版社','2017-06-06'),
+('Python编程入门','/ssm/static/images/books/book23.png',921,6,'人民邮电出版社','2017-09-06'),
+('Python程序设计','/ssm/static/images/books/book24.png',455,2,'电子工业出版社','2017-11-20'),
+('Python编程基础与HTTP接口测试','/ssm/static/images/books/book25.png',378,2,'机械工业出版社','2018-11-20');

@@ -1,0 +1,46 @@
+@charset "UTF-8";
+body,html{
+    margin: 0px;
+    padding: 0px;
+}
+
+nav{
+    font-size: 20px;
+    color: white;
+    text-align: center; 
+    line-height: 50px;
+}
+nav span{
+    padding: 30px;
+}
+nav a{  
+    float: right;
+    color: red;
+    margin-right: 10px;
+}
+
+th img{
+    width: 36px;
+    height: 43px;
+}
+button a{
+	color: white;
+}
+.inputBox{
+	display: none;	
+}
+.saveBtn{
+    display: none;
+}
+
+footer{
+    height: 90px;
+    width: 100%;
+    background-color: #222;
+    border-color: #080808;
+    text-align: center;
+    line-height: 90px;
+    color: white;
+    position: absolute;
+    bottom: 0px;
+}

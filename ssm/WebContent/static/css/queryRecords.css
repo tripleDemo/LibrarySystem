@@ -1,0 +1,39 @@
+@charset "UTF-8";
+body{
+    margin: 0px;
+    padding: 0px;
+}
+nav{
+    font-size: 20px;
+    color: white;
+    text-align: center; 
+    line-height: 50px;
+}
+nav span{
+    padding: 30px;
+}
+nav a{  
+    float: right;
+    color: burlywood;
+    margin-right: 10px;
+}
+
+th img{
+    width: 36px;
+    height: 43px;
+}
+th a{
+	color: white;
+}
+
+footer{
+    height: 120px;
+    width: 100%;
+    background-color: #222;
+    border-color: #080808;
+    text-align: center;
+    line-height: 120px;
+    color: white;
+    position: absolute;
+    bottom: 0px;
+}

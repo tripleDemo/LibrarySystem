@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hclz.mapper.BookMsgMapper">
+  <resultMap id="BaseResultMap" type="com.hclz.pojo.BookMsg">
+    <id column="bookId" jdbcType="INTEGER" property="bookId" />
+    <result column="bookName" jdbcType="VARCHAR" property="bookName" />
+    <result column="bookCover" jdbcType="VARCHAR" property="bookCover" />
+    <result column="borrowNum" jdbcType="INTEGER" property="borrowNum" />
+    <result column="authorId" jdbcType="INTEGER" property="authorId" />
+    <result column="publisher" jdbcType="VARCHAR" property="publisher" />
+    <result column="publishTime" jdbcType="DATE" property="publishTime" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from `bookmsg`
+    where bookId = #{bookId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="bookId" keyProperty="bookId" parameterType="com.hclz.pojo.BookMsg" useGeneratedKeys="true">
+    insert into `bookmsg` (bookName, bookCover, authorId, publisher, publishTime
+      )
+    values (#{bookName,jdbcType=VARCHAR}, #{bookCover,jdbcType=VARCHAR}, #{authorId,jdbcType=INTEGER}, #{publisher,jdbcType=VARCHAR}, #{publishTime,jdbcType=DATE}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.hclz.pojo.BookMsg">
+    update `bookmsg`
+    set bookName = #{bookName,jdbcType=VARCHAR},
+      borrowNum = #{borrowNum,jdbcType=INTEGER},
+      publisher = #{publisher,jdbcType=VARCHAR},
+      publishTime = #{publishTime,jdbcType=DATE}
+    where bookId = #{bookId,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select bookId, bookName, bookCover, borrowNum, authorId, publisher, publishTime
+    from `bookmsg`
+    where bookId = #{bookId,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select bookId, bookName, bookCover, borrowNum, authorId, publisher, publishTime
+    from `bookmsg`
+    <if test="start!=null and size!=null">
+    	LIMIT #{start},#{size}
+  	</if>
+  </select>
+  <select id="selectByBookName" resultMap="BaseResultMap">
+    select bookId, bookName, bookCover, borrowNum, authorId, publisher, publishTime
+    from `bookmsg`
+    where bookName like concat('%',#{bookName},'%')
+  </select>
+  <select id="selectByAuthorName" resultMap="BaseResultMap">
+    select bookId, bookName, bookCover, borrowNum, authorId, publisher, publishTime
+    from `bookmsg`
+    where authorId = (select authorId from authormsg where authorName like concat('%',#{authorName},'%'))
+  </select>
+  <select id="selectByBorrowNum" resultMap="BaseResultMap">
+    select bookCover from `bookmsg` ORDER BY borrowNum DESC LIMIT 10
+  </select>
+  <update id="updateBookNumByPrimaryKey">
+    UPDATE `bookmsg` SET borrowNum = borrowNum+1 WHERE bookId = #{bookId};
+  </update>
+</mapper>

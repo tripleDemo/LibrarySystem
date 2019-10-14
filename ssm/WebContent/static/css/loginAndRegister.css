@@ -1,0 +1,79 @@
+@import "https://cdn.bootcss.com/font-awesome/5.8.2/css/all.css";
+
+/* login-box */
+body{
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+    background: url(../images/bg.jpg) no-repeat;
+    background-size: cover;
+}
+.login-box{
+    width: 600px;
+    height: 550px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: rgba(0, 0, 0, 0.7);
+    box-shadow: 5px 10px 15px #222;
+}
+.signA{
+    display: inline-block;
+    margin-left: 68px;
+    width: 180px;
+    height: 80px;
+    font-size: 66px;
+    font-weight: bold; 
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 25px;
+}
+.signA a{
+    text-decoration: none;
+    color: white;
+}
+div.errorMsg{
+	color: red;
+	text-align: center;
+}
+.textbox{
+    width: 80%;
+    height: 80px;
+    margin: 0 auto;
+    margin-top: 38px;
+    line-height: 80px;
+}
+.textbox i{
+    font-size: 50px;
+}
+.textbox input{
+    width: 80%;
+    height: 75%;
+    border: none;
+    outline: medium;
+    border-radius: 25px;
+    text-indent: 1em;
+    font-size: 25px;
+    font-weight: bold;
+    float: right;
+}
+.type{
+    font-size: 20px;
+    font-weight: bold;
+    padding-top: 25px;
+}
+.type input{
+    margin-left: 60px;
+}
+#btn{
+    width: 80%;
+    height: 55px;
+    font-size: 25px;
+    font-weight: bold;
+    margin-top: 40px;
+    margin-left: 50%;
+    transform: translate(-50%);
+    cursor: pointer;
+}

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hclz.mapper.AuthorMsgMapper">
+  <resultMap id="BaseResultMap" type="com.hclz.pojo.AuthorMsg">
+    <id column="authorId" jdbcType="INTEGER" property="authorId" />
+    <result column="authorName" jdbcType="VARCHAR" property="authorName" />
+    <result column="authorPhoto" jdbcType="VARCHAR" property="authorPhoto" />
+    <result column="authorBirth" jdbcType="DATE" property="authorBirth" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from `authormsg`
+    where authorId = #{authorId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="authorId" keyProperty="authorId" parameterType="com.hclz.pojo.AuthorMsg" useGeneratedKeys="true">
+    insert into `authormsg` (authorName, authorPhoto, authorBirth
+      )
+    values (#{authorName,jdbcType=VARCHAR}, #{authorPhoto,jdbcType=VARCHAR}, #{authorBirth,jdbcType=DATE}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.hclz.pojo.AuthorMsg">
+    update `authormsg`
+    set authorName = #{authorName,jdbcType=VARCHAR},
+      authorPhoto = #{authorPhoto,jdbcType=VARCHAR},
+      authorBirth = #{authorBirth,jdbcType=DATE}
+    where authorId = #{authorId,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select authorId, authorName, authorPhoto, authorBirth
+    from `authormsg`
+    where authorId = #{authorId,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select authorId, authorName, authorPhoto, authorBirth
+    from `authormsg`
+  </select>
+</mapper>

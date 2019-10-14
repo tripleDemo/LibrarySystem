@@ -1,0 +1,225 @@
+@import "https://cdn.bootcss.com/font-awesome/5.8.2/css/all.css";
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
+/* nav */
+nav{
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    height: 80px;
+    background-color: black;
+    text-align: center;
+    border-radius: 5px;
+}
+nav div{
+    display: inline-block;
+}
+nav input{
+    width: 350px;
+    height: 50px;
+    border-radius: 25px;
+    border: none;
+    outline: medium;
+    text-indent: 0.6em;
+    font-size: 25px;
+    font-weight: bold;
+    background-color: burlywood;
+    color: #757575;
+    position: relative;
+    top: 9px;
+    left: 160px;
+}
+.searchType{
+    cursor: pointer;
+    width: 90px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    background-color: burlywood;
+    color: white;
+    border-radius: 25px;
+    margin-right: 20px;
+}
+.searchType:active{
+    background-color: rgb(109, 60, 5);
+}
+#bookSearch{
+    position: relative;
+    top: 62px;
+    left: -200px;
+}
+#authorSearch{
+    position: relative;
+    top: 62px;
+    left: -200px;
+}
+#choose{
+    border: 10px solid transparent;
+    border-top-color: burlywood;
+    position: relative;
+    top: 50px;
+    left: -410px;
+    transition: all 0.5s;
+}
+#search{
+    position: relative;
+    top: 17px;
+    left: 190px;
+}
+nav i{
+    color: burlywood;   
+    font-size: 44px;
+    cursor: pointer;
+}
+nav i:active{
+    color: white;
+}
+nav #black{
+    float: right;
+    margin-right: 20px;
+    margin-top: 25px;
+    text-decoration: none;
+    color: burlywood;
+    font-size: 23px;
+    font-weight: bold;
+}
+nav #black:hover{
+    color: red;
+}
+
+
+/* swiper-container */
+#list{
+    padding-bottom: 50px;
+    text-align: center;
+}
+.swiper-container {
+    /* display: none; */
+    margin-top: 180px;
+    width: 100%;
+    padding-bottom: 80px;
+}
+.swiper-slide {
+    background-size: cover;
+    width: 250px;
+    height: 320px;
+}
+.imgBox img{
+    width: 250px;
+    height: 320px;  
+}
+
+
+/* books-container */
+.books-container{
+    /* display: none; */
+    margin-top: 100px;
+}
+.bookBox{
+    display: inline-block;
+    width: 300px;
+    height: 400px;
+    text-align: center;
+}
+.bookImg{
+    width: 200px;
+    height: 270px;
+    margin: 0 auto;
+    margin-top: 30px;
+    background-color: burlywood;
+}
+.bookImg img{
+    width: 200px;
+    height: 270px;
+    cursor: pointer;
+    box-shadow: 5px 10px 15px black;
+}
+.borrowBtn{
+    width: 80px;
+    height: 40px;
+    background-color: burlywood;
+    font-size: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+    font-weight: bold;
+    margin-top: 20px;
+    outline: none;
+    cursor: pointer;
+}
+
+
+/* cover */
+#cover{
+    display: none;
+    background: #000; 
+    position: fixed; 
+    left: 0px; 
+    top: 0px; 
+    width: 100%; 
+    height: 100%;
+    /* filter: alpha(opacity=30); */   /* filter属性是IE特有的 */
+    opacity: 0.6; 
+    display: none; 
+}
+
+
+/* jump-container */
+.jump-container{
+    display: none;
+    width: 350px;
+    margin: 0 auto;
+    perspective: 1000px;/*景深,就是为了内部盒子有3D效果所设置的 */
+    position: fixed;
+    top: 20%;
+    left: 50%;   
+}
+.page{
+    transform: rotateX(10deg);/* x轴 为中心旋转10deg*/
+    transform-origin: left;/* 把旋转的位置定在左边 */
+    height: 460px;
+    width: 100%;
+    background-color: burlywood;
+}
+#rightPage{
+    text-align: center;
+    position: absolute;
+    top: 0;          
+    z-index: -10; /* 在正对面的方向的等级,越大就在上层,负就掉到后面的 */
+}
+.bookCover img{
+    width: 100%;
+    height: 460px;
+}
+.authorPhoto{
+    margin-top: 20px;
+}
+.authorPhoto img{
+    width: 50%;
+    height: 50%;
+}
+#leftPage.rotate {          
+    animation: rotate 1.5s 1 forwards ease-in;/* 有rotate类后 触发animation动画 */  
+}
+@keyframes rotate {
+    100% {
+        transform: rotateX(10deg) rotateY(-180deg);
+    }
+}
+@keyframes guanbi {
+    0% {
+        transform: rotateX(10deg) rotateY(-180deg);
+    }
+    100%{
+        transform: rotateX(10deg);
+    }
+}
+#fanye{
+    margin-top:80px;
+}

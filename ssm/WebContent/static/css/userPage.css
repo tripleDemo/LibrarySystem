@@ -1,0 +1,59 @@
+body{
+    margin: 0px;
+    padding: 0px;
+}
+nav{
+    font-size: 20px;
+    color: white;
+    text-align: center; 
+    line-height: 50px;
+}
+nav span{
+    padding: 30px;
+}
+nav a{  
+    float: right;
+    color: red;
+    margin-right: 10px;
+}
+.listbox{
+    display: inline-block;
+    width: 300px;
+    height: 300px;
+    background: green;
+    margin-left: 160px;
+    margin-top: 100px;
+    box-shadow: 3px 10px 15px #222;
+    border-radius: 25px;
+}
+.listbox:hover{ 
+    transform: translateY(-20px);
+}
+.listbox:active{
+    background: greenyellow;
+}
+.glyphicon{
+    padding-top: 50px;
+    padding-left: 80px;
+    font-size: 130px;
+    color: white;
+}
+.title{
+    width: 100%;
+    text-align: center;
+    padding: 30px;
+    font-size: 30px;
+    color: white;
+}
+footer{
+    height: 120px;
+    width: 100%;
+    background-color: #222;
+    border-color: #080808;
+    text-align: center;
+    line-height: 120px;
+    color: white;
+    position: absolute;
+    bottom: 0px;
+}
+

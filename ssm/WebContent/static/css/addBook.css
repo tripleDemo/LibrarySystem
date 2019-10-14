@@ -1,0 +1,55 @@
+@charset "UTF-8";
+body,html{
+    margin: 0px;
+    padding: 0px;
+}
+
+nav{
+    font-size: 20px;
+    color: white;
+    text-align: center; 
+    line-height: 50px;
+}
+nav span{
+    padding: 30px;
+}
+nav a{  
+    float: right;
+    color: burlywood;
+    margin-right: 10px;
+}
+
+form{
+	width: 30%;
+	height: 580px;
+	margin: 0 auto;
+    background-color: burlywood;
+    padding: 25px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 16px;
+    font-weight: bold;
+}
+form label{
+    width: 100%;
+    margin-bottom: 20px;
+}
+form input{
+    width: 100%;
+    height: 30px;
+}
+form div{
+    width: 100%;
+    text-align: center;
+}
+
+footer{
+    height: 90px;
+    width: 100%;
+    background-color: #222;
+    border-color: #080808;
+    text-align: center;
+    line-height: 90px;
+    color: white;
+    position: absolute;
+    bottom: 0px;
+}

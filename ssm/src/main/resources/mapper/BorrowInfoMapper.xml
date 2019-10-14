@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hclz.mapper.BorrowInfoMapper">
+  <resultMap id="BaseResultMap" type="com.hclz.pojo.BorrowInfo">
+    <id column="infoId" jdbcType="INTEGER" property="infoId" />
+    <result column="bookId" jdbcType="INTEGER" property="bookId" />
+    <result column="lendTime" jdbcType="DATE" property="lendTime" />
+    <result column="returnTime" jdbcType="DATE" property="returnTime" />
+    <result column="userId" jdbcType="INTEGER" property="userId" />
+    <!-- 处理关联对象 -->
+    <association property="bookMsg" javaType="BookMsg">
+		<id column="bookId" property="bookId"/>
+		<result column="bookName" property="bookName"/>
+		<result column="bookCover" property="bookCover"/>
+		<result column="borrowNum" property="borrowNum"/>
+		<result column="authorId" property="authorId"/>
+		<result column="publisher" property="publisher"/>
+	</association>
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from `borrowinfo`
+    where infoId = #{infoId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="infoId" keyProperty="infoId" parameterType="com.hclz.pojo.BorrowInfo" useGeneratedKeys="true">
+    insert into `borrowinfo` (bookId, lendTime, returnTime, 
+      userId)
+    values (#{bookId,jdbcType=INTEGER}, #{lendTime,jdbcType=DATE}, #{returnTime,jdbcType=DATE}, 
+      #{userId,jdbcType=INTEGER})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.hclz.pojo.BorrowInfo">
+    update `borrowinfo`
+    set bookId = #{bookId,jdbcType=INTEGER},
+      lendTime = #{lendTime,jdbcType=DATE},
+      returnTime = #{returnTime,jdbcType=DATE},
+      userId = #{userId,jdbcType=INTEGER}
+    where infoId = #{infoId,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select infoId, bookId, lendTime, returnTime, userId
+    from `borrowinfo`
+    where infoId = #{infoId,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select infoId, bookId, lendTime, returnTime, userId
+    from `borrowinfo`
+  </select>
+  <select id="selectBookBorrowByuserId" resultMap="BaseResultMap">
+    SELECT * FROM bookmsg bm JOIN borrowinfo bi 
+    WHERE bm.bookId = bi.bookId AND userId = #{userId} AND returnTime IS null
+    <if test="start!=null and size!=null">
+    	LIMIT #{start},#{size}
+  	</if>
+  </select>
+  <select id="selectRecordsByuserId" resultMap="BaseResultMap">
+    SELECT * FROM bookmsg bm JOIN borrowinfo bi 
+    WHERE bm.bookId = bi.bookId AND userId = #{userId}
+    <if test="start!=null and size!=null">
+    	LIMIT #{start},#{size}
+  	</if>
+  </select>
+  <update id="updateReturnTimeByPrimaryKey">
+    update `borrowinfo`
+    set returnTime = #{returnTime}
+    where infoId = #{infoId}
+  </update>
+</mapper>
